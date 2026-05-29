@@ -1,0 +1,39 @@
+
+/* This is a CSS comment */
+body {
+    background: rgb(254, 67, 67);
+    font: 18px Arial, sans-serif;
+}
+h1 {
+    color: rgb(240, 158, 58);
+}
+
+#heading2 {
+    text-align:center;
+    color:rgb(240, 243, 66);
+}
+
+#Hobbies {
+    text-align:center;
+    color:rgb(57, 210, 72);
+}
+
+#Future {
+    text-align:center;
+    color:rgb(57, 210, 205);
+}
+#Food {
+    text-align:center;
+    color:rgb(57, 88, 210);
+}
+
+#Drink {
+    text-align:center;
+    color:rgb(210, 57, 167);
+}
+
+#Sports {
+    text-align:center;
+    color:rgb(210, 57, 111);
+}
+

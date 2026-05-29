@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Clicker Game</title>
+</head>
+<body>
+    <h1 id="header">Welcome To JavaScript</h1>
+    
+    <p>Score: <span id="score">0</span></p>
+
+    <!-- Game Controls -->
+    <button id="btn">Click To Earn Score</button>
+    <button id="btn2">Upgrade (+1) - Cost 10</button>
+    <button id="btn3">Pro Upgrade (+3) - Cost 1000</button>
+    <button id="btnBuyAuto">Buy Auto-Clicker - Cost 5000</button>
+    <button id="btn4">Mega Upgrade (+20) - Cost 50000</button>
+    <button id="btn5">Insane Upgrade (+75) - Cost 750,000</button>
+    
+    <hr>
+
+    <!-- Auto-Clicker Controls -->
+    <button id="startBtn" disabled>Start Auto-Clicker</button>
+    <button id="stopBtn" disabled>Stop Auto-Clicker</button>
+
+    <script>
+        // Game state variables
+        let score = 0;
+        let clickValue = 1;
+        let hasAutoClicker = false;
+        let autoClickerInterval = null;
+
+        // DOM Elements
+        const scoreDisplay = document.getElementById("score");
+        const earnButton = document.getElementById("btn");
+        const btnBuyAuto = document.getElementById("btnBuyAuto");
+        const startBtn = document.getElementById("startBtn");
+        const stopBtn = document.getElementById("stopBtn");
+
+        // Helper function to update display
+        function updateDisplay() {
+            scoreDisplay.innerText = score;
+        }
+
+        // Core Click Logic
+        earnButton.addEventListener("click", () => {
+            score += clickValue;
+            updateDisplay();
+        });
+
+        // Upgrade 1 (+1)
+        document.getElementById("btn2").addEventListener("click", () => {
+            if (score >= 10) {
+                score -= 10;
+                clickValue += 1;
+                updateDisplay();
+            }
+        });
+
+        // Upgrade 2 (+3)
+        document.getElementById("btn3").addEventListener("click", () => {
+            if (score >= 1000) {
+                score -= 1000;
+                clickValue += 3;
+                updateDisplay();
+            }
+        });
+
+        // Buy Auto-Clicker Upgrade
+        btnBuyAuto.addEventListener("click", () => {
+            if (!hasAutoClicker && score >= 5000) {
+                score -= 5000;
+                hasAutoClicker = true;
+                
+                // Update UI states
+                btnBuyAuto.innerText = "Auto-Clicker Purchased!";
+                btnBuyAuto.disabled = true;
+                startBtn.disabled = false;
+                stopBtn.disabled = false;
+                
+                updateDisplay();
+            }
+        });
+
+        // Upgrade 3 (+20)
+        document.getElementById("btn4").addEventListener("click", () => {
+            if (score >= 50000) {
+                score -= 50000;
+                clickValue += 20;
+                updateDisplay();
+            }
+        });
+
+        // Upgrade 4 (+75)
+        document.getElementById("btn5").addEventListener("click", () => {
+            if (score >= 750000) {
+                score -= 750000;
+                clickValue += 75;
+                updateDisplay();
+            }
+        });
+
+        // Auto-Clicker Logic (Runs at 250ms interval)
+        startBtn.addEventListener("click", () => {
+            if (hasAutoClicker && !autoClickerInterval) {
+                autoClickerInterval = setInterval(() => {
+                    earnButton.click();
+                }, 250); // 4 clicks per second
+            }
+        });
+
+        stopBtn.addEventListener("click", () => {
+            if (autoClickerInterval) {
+                clearInterval(autoClickerInterval);
+                autoClickerInterval = null;
+            }
+        });
+    </script>
+</body>
+</html>

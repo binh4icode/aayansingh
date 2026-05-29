@@ -1,0 +1,32 @@
+body {
+    background: rgb(254, 67, 67);
+    font: 18px Arial, sans-serif;
+}
+
+#website {
+    text-align:center;
+    color: rgb(240, 158, 58);
+}
+
+#Aayan {
+    text-align:center;
+}
+
+#navigation {
+    text-align:center;
+    color:rgb(240, 243, 66);
+}
+
+#about {
+    text-align:center;
+    color:rgb(57, 210, 72);
+}
+
+#stuff {
+    text-align:center;
+}
+
+#HTML {
+    text-align:center;
+    
+}

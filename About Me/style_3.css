@@ -1,0 +1,25 @@
+body {
+    background: rgb(254, 67, 67);
+    font: 18px Arial, sans-serif;
+}
+
+#Games {
+    text-align:center;
+    color: rgb(240, 158, 58);
+}
+
+
+#Roblox {
+    text-align:center;
+    color:rgb(240, 243, 66);
+}
+
+#Brawl {
+    text-align:center;
+    color:rgb(57, 210, 72);
+}
+
+#Fall {
+    text-align:center;
+    color:rgb(57, 88, 210);
+} 

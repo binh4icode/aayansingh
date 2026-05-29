@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HANGMAN</h1>
+<script>
+       var words = ["zigzagging", "zodiac", "vortex"];
+       var word = words[Math.floor(Math.random() * words.length)]
+
+       var answerArray = [];
+       for(var i = 0; i < word.length; i++){
+        answerArray[i] = "_";
+       }
+
+       var remainingLetters = word.length;
+
+       while(remainingLetters > 0){
+
+        
+
+        alert(answerArray.join("_"));
+
+        var guess = prompt("Please enter your first letter");
+        if(guess === null){
+            break;
+        }
+        else if(guess.length > 1){
+            alert("Please only type One letter at a time, Thank You!")
+        }
+        else{
+            for (var j =0; j < word.length;j++){
+                if(guess === word[j]){
+                   answerArray[j] = guess;
+                   remainingLetters--;
+                }
+            }
+        }
+    }
+        alert(answerArray.join(""));
+        alert("GOOD JOB! The answer was " + word);
+
+</script>
+
+</body>
+</html>
